@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Quiz App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
       initialRoute: '/home',
       getPages: [
         GetPage(name: "/home", page: () => const HomePage()),

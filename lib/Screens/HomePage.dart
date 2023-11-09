@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     HomePageController _controller = Get.put(HomePageController());
 
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
           SafeArea(
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                     return Text(
                         "High Score : ${_controller.totalScore} ",
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26 )
+                        style: const TextStyle(color: kGrayColor, fontWeight: FontWeight.bold, fontSize: 26 )
                     );
                   }),
                   const Spacer(),

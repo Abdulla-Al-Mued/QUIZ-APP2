@@ -82,6 +82,10 @@ class QuestionController extends GetxController
     _correctAns = getIntByChar(question.correctAnswer);
     _selectedAns = selectedIndex;
 
+    // print("Selected");
+    // print(question.correctAnswer);
+    // print(selectedAns.toString());
+
     if (_correctAns == _selectedAns){
       _numOfCorrectAns++;
       _totalScore += question.score;
@@ -92,7 +96,7 @@ class QuestionController extends GetxController
     update();
 
     // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       nextQuestion();
     });
   }
@@ -154,17 +158,17 @@ class QuestionController extends GetxController
 
     int item = 1;
 
-    if(option == "A"){
+    if(option == 'A'){
+      item = 0;
+    }
+    else if(option == 'B'){
       item = 1;
     }
-    if(option == "B"){
+    else if(option == 'C'){
       item = 2;
     }
-    if(option == "B"){
+    else if(option == "D"){
       item = 3;
-    }
-    if(option == "C"){
-      item = 4;
     }
 
     return item;

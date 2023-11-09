@@ -7,7 +7,7 @@ import 'package:quiz_app/Utils/constants.dart';
 class HomePageController extends GetxController
     with GetSingleTickerProviderStateMixin {
 
-  final RxInt _totalScore = 0.obs; // Use a reactive variable
+  final RxInt _totalScore = 0.obs;
   RxInt get totalScore => _totalScore;
 
   @override

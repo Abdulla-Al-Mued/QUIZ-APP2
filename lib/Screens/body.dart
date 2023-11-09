@@ -16,17 +16,17 @@ class Body extends StatelessWidget {
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
-        //SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+
         SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: ProgressBar(),
               ),
-              SizedBox(height: kDefaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -45,8 +45,8 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(thickness: 1.5),
-              SizedBox(height: kDefaultPadding),
+              const Divider(thickness: 1.5),
+              const SizedBox(height: kDefaultPadding),
               Expanded(
                 child: PageView.builder(
                   // Block swipe to next qn
