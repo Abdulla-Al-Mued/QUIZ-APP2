@@ -1,9 +1,10 @@
 class Question2 {
   final int score;
   final String question, correctAnswer;
+  final String? image;
   final Map<String, String> options;
 
-  Question2({required this.score, required this.question, required this.correctAnswer, required this.options});
+  Question2({required this.score, required this.question, required this.correctAnswer, required this.image, required this.options});
 }
 
 

@@ -14,10 +14,12 @@ class QuestionController extends GetxController
   late AnimationController _animationController;
   late Animation _animation;
   // so that we can access our animation outside
-  Animation get animation => this._animation;
+  Animation get animation => _animation;
 
   late PageController _pageController;
   PageController get pageController => _pageController;
+
+  final RxBool isOptionsEnabled = true.obs;
 
 
   final List<Question2> _questions2 = sample_data2
@@ -26,9 +28,10 @@ class QuestionController extends GetxController
         score: question['score'],
         question: question['question'],
         correctAnswer: question['correctAnswer'],
+        image: question['questionImageUrl'],
         options: question['answers']),
-  )
-      .toList();
+  ).toList();
+
   List<Question2> get questions2 => _questions2;
 
   bool _isAnswered = false;
@@ -37,8 +40,8 @@ class QuestionController extends GetxController
   late int _correctAns;
   int get correctAns => _correctAns;
 
-  late int _totalScore = 0;
-  int get totalScore => _totalScore;
+  RxInt _totalScore = 0.obs;
+  RxInt get totalScore => _totalScore;
 
   late int _selectedAns;
   int get selectedAns => _selectedAns;
@@ -91,13 +94,16 @@ class QuestionController extends GetxController
       _totalScore += question.score;
     }
 
+    isOptionsEnabled.value = false; // Disable options
+
     // It will stop the counter
     _animationController.stop();
     update();
 
-    // Once user select an ans after 3s it will go to the next qn
+    // Once user select an ans after 2s it will go to the next qn
     Future.delayed(const Duration(seconds: 2), () {
       nextQuestion();
+      isOptionsEnabled.value = true;
     });
   }
 
@@ -118,7 +124,7 @@ class QuestionController extends GetxController
       int temp = await getScoreData();
 
       if(_totalScore > temp) {
-        SharedPref.saveIntData(score, _totalScore);
+        SharedPref.saveIntData(score, _totalScore.value);
       }
       print("score ");
       print(_totalScore);

@@ -42,10 +42,10 @@ class Option extends StatelessWidget {
           }
 
           return InkWell(
-            onTap: press,
+            onTap: qnController.isOptionsEnabled.value ? press : null,
             child: Container(
               margin: const EdgeInsets.only(top: kDefaultPadding),
-              padding: const EdgeInsets.all(kDefaultPadding),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
@@ -55,7 +55,7 @@ class Option extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: TextStyle(color: getTheRightColor(), fontSize: 16),
+                    style: TextStyle(color: getTheRightColor(), fontSize: 14),
                   ),
                   Container(
                     height: 26,
