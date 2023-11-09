@@ -23,6 +23,14 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: const Text("Quiz App",
+            style: TextStyle(
+              color: Color(0Xff634099),
+            )),
+      ),
       body: Stack(
         children: [
           SafeArea(
